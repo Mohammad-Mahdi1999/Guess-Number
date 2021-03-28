@@ -1,9 +1,11 @@
 //In His Name
 import kotlin.random.Random
+
 fun main() {
+
     //ask user to set a upper limit for random number
     println("Enter a higher limit:")
-    val upperLimit: Int = readLine()!!.toInt();
+    val upperLimit = readLine()!!.toInt()
     println("Higher Limit is \"$upperLimit\"")
 
     //pick a random from 1 to upperLimit
@@ -16,23 +18,22 @@ fun main() {
 
     while (!isTrue) {
         println("Guess the Number:")
-        guessNumber = readLine()!!.toInt();
+        guessNumber = readLine()!!.toInt()
 
-        if (guessNumber==randomNumber)
-        {
-            println("You guessed correctly in $counter tries.")
-            isTrue=true
-        }
-        else if (guessNumber<randomNumber)
-        {
-            println("the number is too small")
-            counter++
-        }
-        else
-        {
-            println("the number is too big")
-            counter++
+        when {
+            guessNumber==randomNumber -> {
+                println("You guessed correctly in $counter tries.")
+                isTrue=true
+            }
+            guessNumber<randomNumber -> {
+                println("the number is too small")
+                counter++
+            }
+            else -> {
+                println("the number is too big")
+                counter++
 
+            }
         }
 
     }
